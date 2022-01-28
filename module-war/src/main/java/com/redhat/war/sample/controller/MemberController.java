@@ -1,6 +1,7 @@
 package com.redhat.war.sample.controller;
 
 import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
 import javax.enterprise.inject.Model;
 import javax.enterprise.inject.Produces;
 import javax.faces.application.FacesMessage;
@@ -26,6 +27,9 @@ public class MemberController {
     @Inject
     private MemberRegistration memberRegistration;
 
+    @EJB
+    private com.redhat.ejb.sample.HelloSessionBeanRemote helloSessionBeanRemote;
+
     private Member newMember;
 
     @Produces
@@ -40,6 +44,13 @@ public class MemberController {
             facesContext.addMessage(null,
                     new FacesMessage(FacesMessage.SEVERITY_INFO, "Registered!", "Registration successful"));
             initNewMember();
+
+            // try EJB call (from module-ejb)
+            try {
+                System.out.println("EJB call - user created at " + helloSessionBeanRemote.getLocalDateTime());
+            }catch (Exception e) {
+                System.out.println("EJB call error");
+            }
         } catch (Exception e) {
             String errorMessage = getRootErrorMessage(e);
             facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,

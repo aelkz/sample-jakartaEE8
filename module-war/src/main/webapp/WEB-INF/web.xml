@@ -7,4 +7,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
 
     <display-name>module-war</display-name>
 
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+
 </web-app>

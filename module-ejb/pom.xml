@@ -11,6 +11,8 @@
 
     <artifactId>module-ejb</artifactId>
     <packaging>ejb</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>module-ejb</name>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>

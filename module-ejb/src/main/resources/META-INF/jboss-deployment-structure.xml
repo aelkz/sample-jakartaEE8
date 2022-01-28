@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.3">
+    <deployment>
+        <dependencies>
+            <module name="org.apache.log4j" export="TRUE"/>
+        </dependencies>
+    </deployment>
+</jboss-deployment-structure>
+<!-- documentation: https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.4/html-single/development_guide/index#jboss_deployment_structure_xml -->
+<!-- examples: http://www.mastertheboss.com/jbossas/jboss-deploy/practical-examples-of-jboss-deployment-structure-xml/ -->
