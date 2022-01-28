@@ -1,6 +1,5 @@
-<!-- rename this file to faces-config.xml if using JSF. Also check for JSF in pom.xml -->
-
 <?xml version="1.0"?>
+<!-- rename this file to faces-config.xml if using JSF. Also check for JSF in pom.xml -->
 <!-- This file is not required if you don't need any extra configuration. -->
 <faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"

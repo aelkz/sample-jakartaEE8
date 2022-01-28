@@ -39,11 +39,32 @@
     </properties>
 
     <build>
+        <finalName>${project.parent.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-ear-plugin</artifactId>
                 <version>3.2.0</version>
+                <!-- configuring the EAR plug-in -->
+                <configuration>
+                    <!-- Tell Maven we are using Jakarta EE -->
+                    <version>8</version>
+                    <!-- Use Jakarta EE ear libraries as needed. Jakarta EE ear libraries
+                        are in easy way to package any libraries needed in the ear, and automatically
+                        have any modules (EJB-JARs and WARs) use them -->
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
+                    <modules>
+                        <!-- Default context root of the web app.
+                        If a custom context root is needed, uncomment the following snippet to
+                        register our War as a web module and set the contextRoot property -->
+                        <webModule>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>module-war</artifactId>
+                            <contextRoot>/sample</contextRoot>
+                        </webModule>
+                    </modules>
+                    <outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
+                </configuration>
             </plugin>
         </plugins>
     </build>
